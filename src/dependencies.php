@@ -3,6 +3,8 @@
 
 use App\Controllers\Auth\AuthController;
 use App\Controllers\HomeController;
+use App\Validation\Validator;
+
 
 $container = $app->getContainer();
 
@@ -32,6 +34,13 @@ $container['db'] = function ($container) {
     return $capsule;
 };
 
+// Validator
+$container['validator']= function ($container){
+
+    return new Validator;
+
+};
+
 
 $container['view'] = function ($container) {
 
@@ -56,3 +65,5 @@ $container['AuthController'] = function ($container) {
 
     return new AuthController($container);
 };
+
+
