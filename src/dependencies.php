@@ -38,15 +38,11 @@ $container['view'] = function ($container) {
     return new \Slim\Views\PhpRenderer(__DIR__ . '/../resource/views/');
 };
 
-
+//twig
 //$container['view'] = function ($container) {
 //    $view = new \Slim\Views\Twig(__DIR__ . '/../resource/views/', [
 //        'cache' => 'false'
 //    ]);
-//
-//    // Instantiate and add Slim specific extension
-//    $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
-//    $view->addExtension(new Slim\Views\TwigExtension($container->router, $basePath));
 //
 //    return $view;
 //};

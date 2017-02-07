@@ -1,16 +1,25 @@
 <?php
 // Routes
 
-//$app->get('/[{name}]', function ($request, $response, $args) {
-//    // Sample log message
-//    $this->logger->info("Slim-Skeleton '/' route");
+
+//$app->get('/', 'HomeController:index');
+
+$app->get('/', 'AuthController:index');
+
+
+
+$app->post('/', 'AuthController:create')->setName('create.user');
+
+//$app->post('/', $controller = 'AuthController:create' , function($request, $response, $args) use($app)  {
+//    $which = $request->getParam('which');
+//    if ('first_form' === $which) {
 //
-//    // Render index view
-//    return $this->renderer->render($response, 'index.phtml', $args);
+//       // return $app->post('/', 'AuthController:create');
+//
+//    } else if ('second_form' === $which){
+//       echo "oops";
+//    }
 //});
 
 
 
-$app->get('/', 'HomeController:index');
-
-//$app->post('/', 'AuthController:create');

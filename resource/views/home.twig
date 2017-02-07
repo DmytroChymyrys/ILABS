@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -43,7 +44,8 @@
                                 <h1>Please fill in the following fields</span></h1>
                             </div>
                             <div class="login-form">
-                                <form action="/authentication/public/auth/create" method="post">
+                                <form action="/dmytro_test/public/" method="post">
+                                    <input type="hidden" name="which" value="first_form">
                                     <div class="form-details">
                                         <label class="user">
                                             <input type="text" name="name" placeholder="Full Name" id="username">
@@ -69,7 +71,8 @@
                                 <h1>Welcome <span>back!</span></h1>
                             </div>
                             <div class="login-form">
-                                <form>
+                                <form action="" method="post">
+                                    <input type="hidden" name="which" value="second_form">
                                     <div class="form-details">
                                         <label class="user">
                                             <input type="text" name="email" placeholder="Email" id="username">
@@ -88,7 +91,6 @@
         </div>
     </div>
 </div>
-
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
