@@ -1,9 +1,12 @@
 <?php
 // DIC configuration
 
+
 use App\Controllers\Auth\AuthController;
+use App\Controllers\Auth\PasswordController;
 use App\Controllers\HomeController;
 use App\Validation\Validator;
+
 
 
 $container = $app->getContainer();
@@ -65,5 +68,12 @@ $container['AuthController'] = function ($container) {
 
     return new AuthController($container);
 };
+
+$container['PasswordController'] = function ($container) {
+
+    return new PasswordController($container);
+};
+
+
 
 

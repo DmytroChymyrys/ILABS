@@ -1,0 +1,39 @@
+
+<?php
+
+include('templates\partials\header.php');
+
+?>
+
+<div id="register" class="tab-pane">
+    <div class="login-inner">
+        <div class="title">
+
+            <h1>Please fill in the following fields</span></h1>
+        </div>
+        <div class="login-form">
+            <form action="/dmytro_test/public/" method="post">
+                <input type="hidden" name="which" value="first_form">
+                <div class="form-details">
+                    <label class="user">
+                        <input type="text" name="name" placeholder="Full Name" id="username">
+                    </label>
+                    <label class="mail">
+                        <input type="email" name="email" placeholder="Email Address" id="mail">
+                    </label>
+                    <label class="pass">
+                        <input type="password" name="password" placeholder="Password" id="password" value="">
+                    </label>
+                </div>
+                <button type="submit" class="form-btn" onsubmit="">Sent</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

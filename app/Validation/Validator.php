@@ -33,7 +33,7 @@ class Validator
 
         var_dump($this->errors);
 
-        die();
+
 
         return $this;
 

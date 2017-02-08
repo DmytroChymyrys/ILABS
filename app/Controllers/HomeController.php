@@ -17,15 +17,9 @@ class HomeController extends Controller{
 
     public function index($request, $response)
     {
-       // $user =  User::find(1);
-       // var_dump($user->email);
-//        User::create([
-//            'name' => 'Oksana',
-//            'email' => 'email.com',
-//            'password' => '123'
-//        ]);
-       // die();
-        return $this->view->render($response, 'home.twig');
+
+        return $this->view->render($response, 'auth_user.twig');
+
     }
 
 }
