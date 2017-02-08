@@ -3,6 +3,17 @@
 
 include('templates\partials\header.php');
 
+
+
+if(isset($_SESSION['em_exist'])):
+echo '<div class="alert alert-danger alert-dismissible">';
+echo '<button class="close" type="button" data-dismiss="alert">×</button>';
+echo "<strong>".$_SESSION['em_exist']."</strong>";
+echo '</div>';
+unset($_SESSION['em_exist']);
+endif;
+
+
 ?>
 
 <div id="register" class="tab-pane">
@@ -14,15 +25,24 @@ include('templates\partials\header.php');
         <div class="login-form">
             <form action="/dmytro_test/public/" method="post">
                 <input type="hidden" name="which" value="first_form">
-                <div class="form-details">
-                    <label class="user">
-                        <input type="text" name="name" placeholder="Full Name" id="username">
+                <div class="form-details ">
+                    <label class="user ">
+                        <input  type="text" name="name" placeholder="Full Name" id="username" value="<?php echo $_SESSION['old']['name']??''; ?>">
+                        <span style="width: 300px; margin: auto;" class="help-block alert-danger">
+                            <?php echo $_SESSION['errors']['name'][0]??''; ?>
+                        </span>
                     </label>
                     <label class="mail">
-                        <input type="email" name="email" placeholder="Email Address" id="mail">
+                        <input type="email" name="email" placeholder="Email Address" id="mail" value="<?php echo $_SESSION['old']['email']??''; ?>">
+                        <span style="width: 300px; margin: auto;" class="help-block alert-danger">
+                            <?php echo $_SESSION['errors']['email'][0]??''; ?>
+                        </span>
                     </label>
                     <label class="pass">
-                        <input type="password" name="password" placeholder="Password" id="password" value="">
+                        <input pattern=".{7,}" required title="7 characters minimum" type="password" name="password" placeholder="Password" id="password" value="<?php echo $_SESSION['old']['password']??''; ?>">
+                        <span style="width: 400px; margin: auto;" class="help-block alert-danger">
+                            <?php echo $_SESSION['errors']['password'][0]??''; ?>
+                        </span>
                     </label>
                 </div>
                 <button type="submit" class="form-btn" onsubmit="">Sent</button>
@@ -31,9 +51,10 @@ include('templates\partials\header.php');
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
-</html>
 
 
+<?php
+
+include('templates\partials\footer.php');
+
+?>

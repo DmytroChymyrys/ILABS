@@ -16,11 +16,11 @@ class Validator
     {
         foreach ($rules as $field => $rule) {
 
-            try{
+            try {
 
                 $rule->setName(ucfirst($field))->assert($request->getParam($field));
 
-            }catch (NestedValidationException $e){
+            } catch (NestedValidationException $e) {
 
                 $this->errors[$field] = $e->getMessages();
             }
@@ -29,10 +29,8 @@ class Validator
 
         $_SESSION['errors'] = $this->errors;
 
-        unset($_SESSION['errors']);
 
         var_dump($this->errors);
-
 
 
         return $this;

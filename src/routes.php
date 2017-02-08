@@ -1,4 +1,5 @@
 <?php
+
 // Routes
 
 
@@ -13,18 +14,8 @@ $app->get('/signup', function($request, $response){
     return $this->view->render($response, 'signup.twig');
 
 })->setName('signup');
-//$app->post('/signup', 'AuthController:create')->setName('create.user');
 
-$app->post('/', $controller = 'AuthController:create' , function($request, $response, $args) use($app)  {
-    $which = $request->getParam('which');
-    if ('first_form' === $which) {
-
-       // return $app->post('/', 'AuthController:create');
-
-    } else if ('second_form' === $which){
-       echo "oops";
-    }
-});
+$app->post('/', 'AuthController:create');
 
 $app->get('/logout', 'AuthController:logout')->setName('logout');
 

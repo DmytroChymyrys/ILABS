@@ -5,7 +5,19 @@ include('templates\partials\auth_header.php');
 
 ?>
 
+
 <div class="container-fluid " style="min-height: 135px;"></div>
+
+<?php
+if(isset($_SESSION['pswd_err'])):
+echo '<div class="alert alert-danger alert-dismissible">';
+echo '<button class="close" type="button" data-dismiss="alert">×</button>';
+echo "<strong>".$_SESSION['pswd_err']."</strong>";
+echo '</div>';
+unset($_SESSION['pswd_err']);
+endif;
+
+?>
 
 <div class="container bootstrap snippet ">
     <div class="row">
@@ -24,18 +36,20 @@ include('templates\partials\auth_header.php');
                         </div>
                         <div style="margin-top:80px;" class="col-xs-6 col-sm-6 col-md-6 login-box">
                             <form action="/dmytro_test/public/change/password" method="post">
-                            <div class="form-group">
+                            <div class="form-group <?php echo @$_SESSION['errors']['old-password']? ' has-error':''; ?> ">
                                 <div class="input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
                                     <input class="form-control"  name="old-password" type="password"  placeholder="Current Password">
                                 </div>
+                                <span class="help-block"><?php echo @$_SESSION['errors']['old-password'][0]??''; ?></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group <?php echo @$_SESSION['errors']['password']? ' has-error':''; ?> ">
                                 <div class="input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-log-in"></span></div>
                                     <input class="form-control" name="password" type="password" placeholder="New Password">
                                 </div>
+                                <span class="help-block"><?php echo $_SESSION['errors']['password'][0]??''; ?></span>
                             </div>
                         </div>
                     </div>

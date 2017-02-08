@@ -8,7 +8,6 @@ use App\Controllers\HomeController;
 use App\Validation\Validator;
 
 
-
 $container = $app->getContainer();
 
 // view renderer
@@ -38,7 +37,7 @@ $container['db'] = function ($container) {
 };
 
 // Validator
-$container['validator']= function ($container){
+$container['validator'] = function ($container) {
 
     return new Validator;
 
@@ -50,14 +49,6 @@ $container['view'] = function ($container) {
     return new \Slim\Views\PhpRenderer(__DIR__ . '/../resource/views/');
 };
 
-//twig
-//$container['view'] = function ($container) {
-//    $view = new \Slim\Views\Twig(__DIR__ . '/../resource/views/', [
-//        'cache' => 'false'
-//    ]);
-//
-//    return $view;
-//};
 
 $container['HomeController'] = function ($container) {
 

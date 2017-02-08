@@ -35,7 +35,7 @@
 
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+                            <input id="email" type="email" class="form-control" name="email"  placeholder="Email Address"  value="<?php echo $_SESSION['old_s']['email']??' '; ?>">
                         </div>
 
                         <div class="input-group">
@@ -52,3 +52,14 @@
         </div>
     </div>
 </nav>
+<?php
+if(isset($_SESSION['sign_err'])):
+echo '<div class="alert alert-danger alert-dismissible">';
+    echo '<button class="close" type="button" data-dismiss="alert">×</button>';
+    echo "<strong>".$_SESSION['sign_err']."</strong>";
+    echo '</div>';
+unset($_SESSION['sign_err']);
+endif;
+
+?>
+
