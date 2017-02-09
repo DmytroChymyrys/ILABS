@@ -1,26 +1,18 @@
-# Slim Framework 3 Skeleton Application
+# Test created by Dmytro Chymyrys for ILABS based on Slim Framework 3 Skeleton 
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
-
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+Project developed under XAMPP environment using PHP 7 version.
 
 ## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+To install this application you will need to put the root folder to htdocs folder . Database is MySQL, so for database connection you need to open  src folder and find settings.php, in this file there is DB array for db connection.  
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
+In the root directory there is DB dumb for exporting it into database.
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+After that you can start testing the application on your local server.
 
 * Point your virtual host document root to your new application's `public/` directory.
 * Ensure `logs/` is web writeable.
 
-To run the application in development, you can also run this command. 
 
-	php composer.phar start
-
-Run this command to run the test suite
-
-	php composer.phar test
 
 That's it! Now go build something cool.
