@@ -23,3 +23,11 @@ $app->get('/change/password', 'PasswordController:index')->setName('ch_pswd');
 
 $app->post('/change/password', 'PasswordController:changePassword');
 
+$app->get('/admin', function($request, $response){
+
+    return $this->view->render($response, 'admin_pan.twig');
+
+})->setName('admin');
+
+$app->post('/admin/delete', 'AdminController:delete');
+

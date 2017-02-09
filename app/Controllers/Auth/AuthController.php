@@ -87,6 +87,20 @@ class AuthController extends Controller
 
             unset($_SESSION['sign_err']);
 
+            if ($user->user_role == 1) {
+
+                $_SESSION['users'] = User::all();
+
+                $_SESSION['admin'] = true;
+
+                $_SESSION['user'] = 'Welcome  ' . $user->name;
+
+                $_SESSION['usr'] = $user->name;
+
+                return $response->withRedirect($this->router->pathFor('admin'));
+
+            }
+
 
             return $response->withRedirect($this->router->pathFor('auth_user'));
 
@@ -100,6 +114,11 @@ class AuthController extends Controller
         }
 
 
+    }
+
+    public function delete($request, $response)
+    {
+        User::findOrFail($request->getParam('pass'))->delete();
     }
 
     /**

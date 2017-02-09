@@ -2,6 +2,7 @@
 // DIC configuration
 
 
+use App\Controllers\Auth\AdminController;
 use App\Controllers\Auth\AuthController;
 use App\Controllers\Auth\PasswordController;
 use App\Controllers\HomeController;
@@ -63,6 +64,11 @@ $container['AuthController'] = function ($container) {
 $container['PasswordController'] = function ($container) {
 
     return new PasswordController($container);
+};
+
+$container['AdminController'] = function ($container) {
+
+    return new AdminController($container);
 };
 
 
