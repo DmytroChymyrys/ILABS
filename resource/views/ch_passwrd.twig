@@ -36,10 +36,18 @@ endif;
                         </div>
                         <div style="margin-top:80px;" class="col-xs-6 col-sm-6 col-md-6 login-box">
                             <form action="/dmytro_test/public/change/password" method="post">
+
+                                <div class="form-group <?php echo @$_SESSION['errors']['email']? ' has-error':''; ?> ">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                                        <input class="form-control"  name="email" type="email"  placeholder="Email"  value="<?php echo $_SESSION['old_ch']['email']??'';?>"  >
+                                    </div>
+                                    <span class="help-block"><?php echo @$_SESSION['errors']['email'][0]??''; ?></span>
+                                </div>
                             <div class="form-group <?php echo @$_SESSION['errors']['old-password']? ' has-error':''; ?> ">
                                 <div class="input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-                                    <input class="form-control"  name="old-password" type="password"  placeholder="Current Password">
+                                    <input class="form-control"  name="old-password" type="password"  placeholder="Current Password" value="<?php echo $_SESSION['old_ch']['old-password']??'';?>">
                                 </div>
                                 <span class="help-block"><?php echo @$_SESSION['errors']['old-password'][0]??''; ?></span>
                             </div>
@@ -47,7 +55,7 @@ endif;
                             <div class="form-group <?php echo @$_SESSION['errors']['password']? ' has-error':''; ?> ">
                                 <div class="input-group">
                                     <div class="input-group-addon"><span class="glyphicon glyphicon-log-in"></span></div>
-                                    <input class="form-control" name="password" type="password" placeholder="New Password">
+                                    <input class="form-control" name="password" type="password" placeholder="New Password" value="<?php echo $_SESSION['old_ch']['password']??'';?>" >
                                 </div>
                                 <span class="help-block"><?php echo $_SESSION['errors']['password'][0]??''; ?></span>
                             </div>

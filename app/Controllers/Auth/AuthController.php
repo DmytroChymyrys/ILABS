@@ -52,6 +52,7 @@ class AuthController extends Controller
                 'password' => password_hash(trim($request->getParam('password')), PASSWORD_DEFAULT),
             ]);
 
+
             $_SESSION['user'] = 'Welcome  ' . $request->getParam('name');
 
 

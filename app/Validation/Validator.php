@@ -30,9 +30,6 @@ class Validator
         $_SESSION['errors'] = $this->errors;
 
 
-        var_dump($this->errors);
-
-
         return $this;
 
     }
@@ -41,6 +38,7 @@ class Validator
     public function failed()
     {
         return !empty($this->errors);
+
     }
 
 

@@ -31,7 +31,11 @@ class PasswordController extends Controller
     {
 
 
+        $_SESSION['old_ch'] = $request->getParams();
+
         $validation = $this->validator->validate($request, [
+
+            'email' => Respect::noWhitespace()->notEmpty()->email(),
 
             'old-password' => Respect::noWhitespace()->notEmpty(),
 
@@ -40,32 +44,42 @@ class PasswordController extends Controller
 
         ]);
 
+
         if ($validation->failed()) {
 
 
             return $response->withRedirect($this->router->pathFor('ch_pswd'));
+
+
         }
 
 
-        $user = User::where('name', $_SESSION['usr'])->first();
+        if ($user = User::where('email', $request->getParam('email'))->first()) :
 
 
-        if (password_verify($request->getParam('old-password'), $user->password)) {
+            if (password_verify($request->getParam('old-password'), $user->password)) {
 
-            $user->updatePassword($request->getParam('password'));
 
-            $_SESSION['user'] = 'Welcome  ' . $user->name;
+                $user->updatePassword($request->getParam('password'));
 
-            unset($_SESSION['pswd_err']);
+                $_SESSION['user'] = 'Welcome  ' . $user->name;
 
-            return $response->withRedirect($this->router->pathFor('auth_user'));
+                unset($_SESSION['pswd_err']);
 
-        } else {
+                return $response->withRedirect($this->router->pathFor('auth_user'));
 
-            $_SESSION['pswd_err'] = 'Old password does not match';
+            } else {
+
+
+                $_SESSION['pswd_err'] = 'Old password does not match';
+
+                return $response->withRedirect($this->router->pathFor('ch_pswd'));
+            }
+        else: $_SESSION['pswd_err'] = 'Sorry, email is incorrect';
 
             return $response->withRedirect($this->router->pathFor('ch_pswd'));
-        }
+
+        endif;
     }
 }
 
