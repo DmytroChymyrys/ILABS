@@ -6,7 +6,7 @@ Project developed under XAMPP environment using PHP 7 version, MVC , ORM and Act
 
 To install this application you will need to put the root folder to htdocs folder . Database is MySQL, so for database connection you need to open  src folder and find settings.php, in this file there is DB array for db connection.  
 
-In the root directory there is DB dumb for exporting it into database.
+In the root directory there is DB dump for exporting it into database.
 
 After that you can start testing the application on your local server.
 
