@@ -1,6 +1,6 @@
 # Test created by Dmytro Chymyrys for ILABS based on Slim Framework 3 Skeleton 
 
-Project developed under XAMPP environment using PHP 7 version.
+Project developed under XAMPP environment using PHP 7 version, MVC , ORM and Active records patterns. 
 
 ## Install the Application
 
